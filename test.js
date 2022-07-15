@@ -20,6 +20,7 @@ var log = {
   try{
         const login= sfdx.login(log);
         console.log('*** login ok ****',login);
+        sfdx.setDefaultDevHub( alias );
         const createx= sfdx.create(options);
         console.log('*** create ok ****',createx);
         const orgInfo= sfdx.orgInfo(alias);
@@ -30,7 +31,7 @@ var log = {
 
   }
 
-  return;
+
 }
 
 const result=createSo('test4', 1, 'config/project-scratch-def.json');
