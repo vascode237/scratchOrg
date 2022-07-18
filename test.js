@@ -10,23 +10,35 @@ const sfdx = require('sfdx');
 let options = {
     alias : alias,
     days : day,
-    definitionfile : definitionfile
+    devhub  : true,
+    sandbox : false,
+    definitionfile : definitionfile,
+    user: true,
+    json : true
 }
-var log = {
+
+/*var log = {
     alias : alias,
     devhub  : true,
     sandbox : false
-}
+}*/
+
   try{
-        const login= sfdx.login(log);
-        console.log('*** login ok ****',login);
-        sfdx.setDefaultDevHub( alias );
-        const createx= sfdx.create(options);
-        console.log('*** create ok ****',createx);
-        const orgInfo= sfdx.orgInfo(alias);
-        console.log('*** org info ok ****',orgInfo);
-        const userInfo= sfdx.userInfo(alias);
-        console.log('*** user info ok ****',userInfo);
+
+        //login Org
+        sfdx.login(options.alias, options.devhub, options.sandbox);
+
+        //sfdx.setDefaultDevHub( alias );
+
+        //create ScratchOrg
+        sfdx.create(options.alias, options.days, options.definitionfile);
+
+        //display data Org
+        sfdx.orgInfo(options.alias, options.user, options.json);
+
+        ////Import data in the ScratchOrg
+        sfdx.push(options.alias);
+        
   }catch(err){
 
   }
@@ -34,5 +46,4 @@ var log = {
 
 }
 
-const result=createSo('test4', 1, 'config/project-scratch-def.json');
-console.log('*** result ****',result);
+createSo('vasley1', 1, 'config/project-scratch-def.json');

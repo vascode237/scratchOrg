@@ -21,10 +21,13 @@ function createSo(definitionfile, alias){
 
     //display data Org
     sfdx.exec(' sfdx force:org:display -u ' + usernameScratchOrg + ' --json');
+
+    //Import data in the ScratchOrg
+    sfdx.exec('sfdx force:source:push -u ' + usernameScratchOrg);
     
 
 }
 
-const result=createSo('config/project-scratch-def.json', 'vasly');
+const result=createSo('config/project-scratch-def.json', 'vasley2');
 console.log('*** result ****',result);
 
