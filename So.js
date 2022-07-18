@@ -20,7 +20,7 @@ function createSo(definitionfile, alias){
     sfdx.exec(' sfdx force:user:password:generate -u ' + usernameScratchOrg);
 
     //display data Org
-    sfdx.exec(' sfdx force:org:display -u ' + usernameScratchOrg + ' --json');
+    sfdx.exec(' sfdx force:org:display --json -u ' + usernameScratchOrg);
 
     //Import data in the ScratchOrg
     sfdx.exec('sfdx force:source:push -u ' + usernameScratchOrg);
