@@ -17,6 +17,13 @@ let options = {
     json : true
 }
 
+let newOptions = {
+  alias : alias,
+  days : day,
+  definitionfile : definitionfile,
+
+}
+
 /*var log = {
     alias : alias,
     devhub  : true,
@@ -31,7 +38,7 @@ let options = {
         //sfdx.setDefaultDevHub( alias );
 
         //create ScratchOrg
-        sfdx.create(options.alias, options.days, options.definitionfile);
+        sfdx.create(newOptions);
 
         //display data Org
         sfdx.orgInfo(options.alias, options.user, options.json);
@@ -46,4 +53,4 @@ let options = {
 
 }
 
-createSo('vasley1', 1, 'config/project-scratch-def.json');
+createSo('vasley2', 1, "config/project-scratch-desf.json");
