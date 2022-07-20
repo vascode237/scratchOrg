@@ -9,7 +9,6 @@ const sfdx = require('sfdx');
   
 let options = {
     alias : alias,
-    days : day,
     devhub  : true,
     sandbox : false,
     definitionfile : definitionfile,
@@ -43,7 +42,7 @@ let newOptions = {
         //display data Org
         sfdx.orgInfo(options.alias, options.user, options.json);
 
-        ////Import data in the ScratchOrg
+        //Import data in the ScratchOrg
         sfdx.push(options.alias);
         
   }catch(err){
@@ -53,4 +52,4 @@ let newOptions = {
 
 }
 
-createSo('vasley2', 1, "config/project-scratch-desf.json");
+createSo('vasly1', 1, "config/project-scratch-desf.json");

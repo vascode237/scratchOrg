@@ -22,12 +22,14 @@ function createSo(definitionfile, alias){
     //display data Org
     sfdx.exec(' sfdx force:org:display --json -u ' + usernameScratchOrg);
 
-    //Import data in the ScratchOrg
+    //Import Metadata in the ScratchOrg
     sfdx.exec('sfdx force:source:push -u ' + usernameScratchOrg);
+
+    //change password
+    sfdx.exec(' sfdx force:user:password:generate --length 8 --complexity 1 -u ' + usernameScratchOrg);
     
 
 }
 
-const result=createSo('config/project-scratch-def.json', 'vasley2');
-console.log('*** result ****',result);
+createSo('config/project-scratch-def.json', 'vasley4');
 
